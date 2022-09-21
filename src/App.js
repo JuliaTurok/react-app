@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './App.css';
+import React, { useState } from "react";
+import Forecast from "./Forecast";
+
+export default function App() {
+  let [city, setCity] = useState("");
+  let [forecast, setForecast] = useState("");
+  
+
+  function updateCity(event) {
+    setCity(event.target.value);
+  }
+  function showForecast(event) {
+    event.preventDefault();
+    setForecast(<Forecast city={city} />);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <div>
+      <div className="container">
+        <form id="search-form">
+          <input
+            type="search"
+            placeholder="Enter a city"
+            onChange={updateCity}
+            id="text-input"
+          />
+          <button onClick={showForecast}>🔍</button>
+        </form>
+        <h2>{forecast}</h2>
+        
+      </div>
+      <div className="link">
+        <a href="https://github.com/JuliaTurok/Project-She-Codes.git">
+          Open-source code
         </a>
-      </header>
+        , by Julia Turok
+      </div>
     </div>
   );
 }
-
-export default App;
