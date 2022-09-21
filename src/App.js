@@ -28,10 +28,9 @@ export default function App() {
           <button onClick={showForecast}>🔍</button>
         </form>
         <h2>{forecast}</h2>
-        
       </div>
       <div className="link">
-        <a href="https://github.com/JuliaTurok/Project-She-Codes.git">
+        <a href="https://github.com/JuliaTurok/react-app.git">
           Open-source code
         </a>
         , by Julia Turok
